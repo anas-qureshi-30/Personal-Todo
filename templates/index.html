@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0&icon_names=inventory" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Share+Tech&family=Tagesschrift&display=swap"
+        rel="stylesheet">
+    <title>Personal Todo</title>
+
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="subContainer">
+            <div class="heading">
+                <span class="material-symbols-outlined">
+                    inventory
+                </span>
+                <h1 class="headingText">Personal Todo</h1>
+            </div>
+            <form action="/index.html" class="formGroup" method="POST">
+                <input type="text" name="todoEntry" id="todoEntry" placeholder="Enter Your Todo" required><input
+                    type="submit" id="submitBtn">
+            </form>
+        </div>
+        {% if res %}
+        <table class="table">
+            <tr class="tableHeader">
+                <td class="tableData" >SrNo.</td>
+                <td class="tableData">Todo</td>
+                <td class="tableData">Date</td>
+                <td class="tableData">Update</td>
+                <td class="tableData">Delete</td>
+            </tr>
+            {% for data in res %}
+            {% if loop.index %2 ==0 %}
+            <tr class="evenRow">
+                <td class="tableData mainTableData" >{{loop.index}}</td>
+                <td class="tableData mainTableData">{{data["todo"]}}</td>
+                <td class="tableData mainTableData">{{data["date"]}}</td>
+                <td class="tableData mainTableData"><a href='/update/{{data["id"]}}'><button class="btns" >Update</button></a></td>
+                <td class="tableData mainTableData"><a href='/delete/{{data["id"]}}'><button class="btns" >Delete</button></a></td>
+            </tr>
+            {% else %}
+            <tr class="oddRow">
+                <td class="tableData mainTableData">{{loop.index}}</td>
+                <td class="tableData mainTableData">{{data["todo"]}}</td>
+                <td class="tableData mainTableData">{{data["date"]}}</td>
+                <td class="tableData mainTableData"><a href='/update/{{data["id"]}}'><button class="btns" >Update</button></a></td>
+                <td class="tableData mainTableData"><a href='/delete/{{data["id"]}}'><button class="btns" >Delete</button></a></td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        {% else %}
+        <div class="noData">
+            <p>No todo found, enter your todo</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

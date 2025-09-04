@@ -1,0 +1,151 @@
+ * {
+     margin: 0;
+     font-family: "Share Tech", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+ }
+
+ body {
+     background-color: rgba(232, 232, 232, 0.201);
+     display: flex;
+     justify-content: center;
+
+ }
+
+ .mainContainer {
+     margin-top: 4%;
+     background-color: white;
+     width: 100%;
+     max-width: 800px;
+     border-radius: 10px;
+     display: flex;
+     padding: 2rem 2rem;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     transition: 0.3s ease-out;
+ }
+
+ .mainContainer:hover {
+     translate: 0px -3px;
+     border-left: 10px solid blue;
+ }
+
+ .subContainer {
+     width: 80%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     padding: 0;
+ }
+
+ .heading {
+     display: flex;
+     align-items: center;
+     gap: 5px;
+ }
+
+ .headingText {
+     display: inline;
+     font-size: 35px;
+     color: blue;
+     font-weight: 800;
+ }
+
+ .material-symbols-outlined {
+     font-size: 35px;
+     color: blue;
+ }
+
+ .formGroup {
+     display: flex;
+     width: 100%;
+     gap: 10px;
+     margin-top: 2rem;
+ }
+
+ #todoEntry {
+     width: 100%;
+     border: 2px solid rgb(187, 187, 187);
+     border-radius: 10px;
+     outline: none;
+     height: 2.0rem;
+     font-size: 17px;
+     transition: 0.5s;
+     padding: 0px 10px;
+ }
+
+ #todoEntry:focus {
+     border: 2px solid blue;
+ }
+
+ #submitBtn {
+     width: 20%;
+     border: 2px solid rgb(135, 135, 249);
+     background-color: rgb(135, 135, 249);
+     border-radius: 10px;
+     color: white;
+     font-size: 17px;
+     transition: 0.5s;
+ }
+
+ .noData {
+     border: 2px solid blue;
+     width: fit-content;
+     padding: 10px;
+     border-radius: 10px;
+     margin-top: 20px;
+     color: blue;
+     background-color: rgba(119, 119, 255, 0.278);
+ }
+
+ #submitBtn:hover {
+     background-color: blue;
+     color: white;
+     border: 2px solid blue;
+     cursor: pointer;
+ }
+
+ .table {
+     margin-top: 20px;
+     width: 100%;
+ }
+
+ .tableHeader {
+     background-color: blue;
+     color: white;
+ }
+
+ .evenRow {
+     background-color: rgba(233, 233, 233, 0.545);
+ }
+
+ .oddRow {
+     background-color: white;
+ }
+
+ .tableData {
+     padding: 10px;
+ }
+.btns{
+     width: 100%;
+     border: 2px solid rgb(0, 0, 255);
+     background-color: rgb(0, 0, 255);
+     border-radius: 10px;
+     color: white;
+     padding: 5px;
+     font-size: 14px;
+}
+.mainTableData{
+    border-bottom: 1px solid grey;
+}
+.btns:hover{
+    cursor: pointer;
+}
+ @media(max-width:490px) {
+     .mainContainer {
+         padding: 0.5rem;
+     }
+ }
