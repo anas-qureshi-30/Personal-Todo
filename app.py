@@ -1,13 +1,17 @@
 from flask import Flask,render_template,request,redirect,session
 import mysql.connector
+import json
+
+with open('config.json') as f:
+    config=json.load(f)
 
 app=Flask(__name__)
 app.secret_key="secret_key"
 mydb=mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="anas123",
-    database="personal_todo"
+    host=config["DB_HOST"],
+    user=config["DB_USER"],
+    password=config["DB_PASS"],
+    database=config["DB_NAME"]
 )
 
 myCursor=mydb.cursor(dictionary=True)
